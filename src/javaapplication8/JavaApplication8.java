@@ -12,8 +12,12 @@ package javaapplication8;
 public class JavaApplication8 {
     
     public static double power (double base, int exponent) {
+        int total = 1;
+        for ( int counter = 1; counter<=exponent; counter++ ) {
+            total *= base;
         
-        return ()
+    }
+        return (total);
         
     }
 
@@ -21,7 +25,9 @@ public class JavaApplication8 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+     int temp = (int) power (4,3);
+        System.out.println(temp);
+     
 
     }
 
