@@ -10,13 +10,33 @@ package javaapplication8;
  * @author Student
  */
 public class JavaApplication8 {
+    
+    public static double power (double base, int exponent) {
+        
+        return ()
+        
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("boomy");
+
     }
-    
+
+    /**
+     * This method adds two:
+     *
+     * @param x user input
+     * @param y another get user input
+     * @return sum X + Y
+     */
+
+    public static int bark(int x, int y) {
+        return (x + y);
+    }
+
 }
+    
+ 
