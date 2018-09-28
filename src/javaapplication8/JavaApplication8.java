@@ -10,24 +10,27 @@ package javaapplication8;
  * @author Student
  */
 public class JavaApplication8 {
-    
-    public static double power (double base, int exponent) {
-        int total = 1;
-        for ( int counter = 1; counter<=exponent; counter++ ) {
-            total *= base;
-        
-    }
-        return (total);
-        
-    }
 
+    public static double power(double base, int exponent) {
+        int total = 1;
+        int counter = 1;
+        if (counter == exponent) {
+            counter++;
+
+            return 2;
+        
+    }else{
+            return base* power(base,exponent-1);
+        }
+      
     /**
      * @param args the command line arguments
      */
+
+    }
     public static void main(String[] args) {
-     int temp = (int) power (4,3);
+        int temp = (int) power(2,4);
         System.out.println(temp);
-     
 
     }
 
@@ -38,11 +41,8 @@ public class JavaApplication8 {
      * @param y another get user input
      * @return sum X + Y
      */
-
     public static int bark(int x, int y) {
         return (x + y);
     }
 
 }
-    
- 
