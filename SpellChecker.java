@@ -93,12 +93,14 @@ public class SpellChecker {
     }
 
     public static void main(String args[]) throws IOException {
+        System.out.println("=====================SPELL CHECKER=============================");
         System.out.println("Enter the word: ");
         BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
         String stmt = BR.readLine();
         String seg[] = stmt.split(" ");
         for (String s : seg) {
-            System.out.println((s + " : ") + (new SpellChecker("C:\\Users\\Tagaya\\Documents\\NetBeansProjects\\JavaApplication19\\src\\javaapplication19\\DIC")).correct(s));
+            System.out.println("====================PROCESS=================================");
+            System.out.println((s + " ==> ") + (new SpellChecker("C:\\Users\\Tagaya\\Documents\\NetBeansProjects\\JavaApplication19\\src\\javaapplication19\\DIC")).correct(s));
         }
     }
 
