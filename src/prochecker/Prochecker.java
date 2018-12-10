@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
  */
 public class Prochecker {
 
-    private final HashMap<String, Integer> Words = new HashMap<String, Integer>();
+    static HashMap<String, Integer> Words = new HashMap<String, Integer>();
 
     /**
      * This Method Constructs a new spell corrector. Builds up a hashmap of
@@ -44,7 +44,7 @@ public class Prochecker {
                 Words.put((temp = m.group()), Words.containsKey(temp) ? Words.get(temp) + 1 : 1);
             }
         }
-        in.close();
+//        in.close();
     }
 
     /**
@@ -54,7 +54,7 @@ public class Prochecker {
      * @param word the word to construct the list from
      * @return a list of words with in edit distance 1 of word
      */
-    private final ArrayList<String> editDistance(String word) {
+    public ArrayList<String> editDistance(String word) {
         ArrayList<String> result = new ArrayList<String>();  //list of all words within edit distance of 1 
 
         // deletion 
@@ -91,31 +91,37 @@ public class Prochecker {
      * @return word if correct or too far from any word; corrected word
      * otherwise
      */
-    public final String correct(String word) {
+    public String correct(String word) {
         String word1 = word.toLowerCase();
+        String word2 = word.toLowerCase();
         if (Words.containsKey(word1)) {
             return word;
         }
         ArrayList<String> list = editDistance(word1);
         HashMap<Integer, String> candidates = new HashMap<Integer, String>();
+
         // Find all things edit distance 1 that are in the dictionary.  Also remember
-        //   their frequency count from nWords.  F
+        //   their frequency count from Words.  
         for (String s : list) {
             if (Words.containsKey(s)) {
                 candidates.put(Words.get(s), s);
+
             }
         }
 //        If found something edit distance 1 return the most frequent word
         if (candidates.size() > 0) {
-            System.out.println(word + " : " + candidates);   //* 
+            System.out.println(word + " : " + candidates);
             return candidates.get(Collections.max(candidates.keySet()));
+
         }
+
         // Find all things edit distance 1 from everything of edit distance 1.  These
         // will be all things of edit distance 2 (plus original word).  Remember frequencies
         for (String s : list) {
             for (String w : editDistance(s)) {
                 if (Words.containsKey(w)) {
                     candidates.put(Words.get(w), w);
+
                 }
             }
         }
@@ -137,12 +143,11 @@ public class Prochecker {
         System.out.println("=====================SPELL CHECKER=============================");
         System.out.println("Enter the word: ");
         BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
-        String stmt = BR.readLine();
-        String seg[] = stmt.split(" ");
+        String temp = BR.readLine();
+        String seg[] = temp.split(" ");
         for (String s : seg) {
             System.out.println("====================PROCESS=================================");
             System.out.println((s + " ==> ") + (new Prochecker("C:\\Users\\Tagaya\\Documents\\NetBeansProjects\\JavaApplication19\\src\\javaapplication19\\DIC")).correct(s));
         }
     }
-
 }
