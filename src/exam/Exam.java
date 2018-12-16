@@ -116,18 +116,17 @@ public class Exam {
      * contains number.
      */
     public void questionD(String filePath) {
-        try(BufferedReader read = new BufferedReader(new FileReader(filePath))){
-        String pattern = "[0-9]";
-        String temp;
-        int count = 0;
-        while((temp = read.readLine()) != null){
+        try (BufferedReader read = new BufferedReader(new FileReader(filePath))) {
+            String pattern = "[0-9]";
+            String temp;
+            int count = 0;
+            while ((temp = read.readLine()) != null) {
 //            Pattern 
-            
-        }
-                
-                
-        }catch(Exception e){
-            
+
+            }
+
+        } catch (Exception e) {
+
         }
 
     }
@@ -159,24 +158,24 @@ public class Exam {
      * contains number.
      */
     public void questionF(String filePath) {
-        try(BufferedReader read = new BufferedReader(new FileReader(filePath))){
+        try (BufferedReader read = new BufferedReader(new FileReader(filePath))) {
             String pattern = "[0-9]";
             String temp;
             int count = 0;
             while ((temp = read.readLine()) != null) {
                 Pattern tt = Pattern.compile(pattern);
                 Matcher ss = tt.matcher(temp);
-                
-                while(ss.find()){
+
+                while (ss.find()) {
                     int temp2 = Integer.parseInt(ss.group(0));
                     count += temp2;
-                    
+
                 }
-            
+
             }
             System.out.println(count);
-            }catch(Exception e){
-                
+        } catch (Exception e) {
+
         }
     }
 
@@ -217,17 +216,16 @@ public class Exam {
      * deleted from sentences of each T.
      */
     public void questionH(String filePath) {
-        
-            
-        }
-    
-        /**
-         * 5 points
-         *
-         * Display all numbers from 1 to N.
-         *
-         * @param n the limit of the number.
-         */
+
+    }
+
+    /**
+     * 5 points
+     *
+     * Display all numbers from 1 to N.
+     *
+     * @param n the limit of the number.
+     */
     public void questionI(int n) {
         for (int i = 1; i <= n; i++) {
             System.out.println(i);
