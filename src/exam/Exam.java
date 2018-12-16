@@ -121,9 +121,17 @@ public class Exam {
             String temp;
             int count = 0;
             while ((temp = read.readLine()) != null) {
-//            Pattern 
+                Pattern red = Pattern.compile(pattern);
+                Matcher ww = red.matcher(temp);
+
+                while (ww.find()) {
+                    int temp2 = Integer.parseInt(ww.group(0));
+                    count += temp2;
+
+                }
 
             }
+            System.out.println(count);
 
         } catch (Exception e) {
 
@@ -143,8 +151,28 @@ public class Exam {
      * @return total unique words
      */
     public int questionE(String filePath) {
+        String pat = "[(\\w+\\b)(?!.*\\1)]";
+        String temp;
+        int count = 0;
+        try (BufferedReader read = new BufferedReader(new FileReader(filePath))) {
+            while ((temp = read.readLine()) != null) {
+                Pattern red = Pattern.compile(pat);
+                Matcher ww = red.matcher(temp);
+                while (ww.find()) {
+                    int temp1 = Integer.parseInt(ww.group(0));
+                    count += temp1;
+                }
+                    
 
-        return 0;
+            }
+//            System.out.println(count);
+            
+
+        } catch (Exception e) {
+
+        }
+
+        return count;
     }
 
     /**
@@ -241,10 +269,13 @@ public class Exam {
     public void questionJ() {
 
         for (int x = 1; x <= 100; x++) {
-            System.out.println(x);
+            if (x % 3 == 0) {
+
+                System.out.println(x);
+
+            }
 
         }
-
     }
 
     public static void main(String[] args) {
@@ -260,8 +291,10 @@ public class Exam {
 //        sc.questionI(50);
 //        sc.questionJ();
         //sc.questionH("C:\\Users\\pc\\Desktop\\TestFileThree.txt");
-        sc.questionF("C:\\Users\\pc\\Desktop\\TestFileTwo.txt");
+//        sc.questionF("C:\\Users\\pc\\Desktop\\TestFileTwo.txt");
         //String filePath= "C:\\Users\\pc\\Desktop\\TestFileThree.txt";
+        String temp = "C:\\Users\\pc\\Documents\\NetBeansProjects\\exam\\src\\exam\\newfile";
+        System.out.println(sc.questionE(temp));
     }
 
 }
