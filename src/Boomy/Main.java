@@ -5,6 +5,8 @@
  */
 package Boomy;
 
+import java.util.Scanner;
+
 /**
  *
  * @author laganjv
@@ -12,26 +14,27 @@ package Boomy;
 public class Main {
 
     public static void main(String[] args) {
-        Animal animalOne = new Animal();
-        animalOne.kind = "sdsdf";
-        animalOne.setSound("aw aww");
-        System.out.println(animalOne.getSound());
-        System.out.println(animalOne.kind);
-        Animal animalTwo = new Animal("Henry", "meow meow");
-        
-        System.out.println(animalOne.kind);
-        System.out.println();
-//        System.out.println(animalOne.sayHello()); //error
-//        
-//        animalOne.sayHello();
-//        System.out.println(animalOne.counter);
-//        System.out.println(animalTwo.counter);
 
-//        animalOne.weight = 1000000;                                                                                   
-//        Animal.counter = 3000;
+        Animal[] animalArray = new Animal[4];
+//        temp[0] = new Animal();
+//        temp[0].setKind("dog");
 //
-//        System.out.println(animalOne.counter);
-//        System.out.println(animalTwo.counter);
+//        temp[1] = new Animal();
+//        temp[1].setKind("cat");
+//
+//        System.out.println("0: " + temp[0].getKind());
+//        System.out.println("1: " + temp[1].getKind());
+
+        Scanner input = new Scanner(System.in);
+        for (int counter = 0; counter < animalArray.length; counter++) {
+            animalArray[counter] = new Animal();
+            System.out.println("input Animal");
+            String inputAnimal = input.nextLine();
+            animalArray[counter].setKind(inputAnimal);
+        }
+        for ( Animal anim : animalArray){
+            System.out.println("animal: " + anim.getKind());
+        }
 
     }
 
