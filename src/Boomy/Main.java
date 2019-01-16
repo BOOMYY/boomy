@@ -27,7 +27,7 @@ public class Main {
 //        System.out.println(animalOne.counter);
 //        System.out.println(animalTwo.counter);
 
-//        animalOne.weight = 1000000;
+//        animalOne.weight = 1000000;                                                                                   
 //        Animal.counter = 3000;
 //
 //        System.out.println(animalOne.counter);
